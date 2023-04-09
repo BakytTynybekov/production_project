@@ -1,4 +1,5 @@
 import HtmlWebpackPlugin from "html-webpack-plugin";
+import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import webpack from "webpack";
 
@@ -10,6 +11,9 @@ export function buildPlugins(path: string): webpack.WebpackPluginInstance[] {
     new webpack.ProgressPlugin(),
     new MiniCssExtractPlugin({
       filename: "css/[name].[contenthash:8].css",
+    }),
+    new BundleAnalyzerPlugin({
+      openAnalyzer: false,
     }),
     // new webpack.HotModuleReplacementPlugin(),
   ];
